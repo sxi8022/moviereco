@@ -9,12 +9,14 @@ db = client.dbsparta
 import requests
 from bs4 import BeautifulSoup
 
+# 메인페이지
 @app.route('/')
 def home():
     return render_template('index.html')
 
+# 장르별
 @app.route('/category')
-def home():
+def category():
     return render_template('category.html')
 
 
