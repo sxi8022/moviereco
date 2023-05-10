@@ -10,10 +10,10 @@ body{display:flex; justify-content:center; align-items:center; min-height:100vh;
 
 header{float:left; margin-top:20px;}
 header h1{font-family:'Poppins', 'Nanum Gothic'; font-size:48px; line-height:58px; font-weight:800; padding-bottom:20px}
-header h1 span{display:block; color:#307DEF; font-size:20px; margin-bottom:10px;}
+header h1 span{display:block; color:#0E4D04; font-size:20px; margin-bottom:10px;}
 
 .flexbox {display:flex; flex-direction:column; position:relative; padding-right:65px;} 
-.flexbox::before{content:""; position:absolute; top:0; right:0; width:1020px; height:474px; background:#F9FBFF url(../resources/images/kej/index/bg.png) no-repeat right top; border-radius:130px; z-index:-999}
+.flexbox::before{content:""; position:absolute; top:0; right:0; width:1020px; height:474px; background:#f9fff9 url(./res/logo.png) no-repeat right top; border-radius:130px; z-index:-999}
 .discript{height:187px; padding:92px 0 0 70px; line-height:24px;}
 .flexbox > article {display:flex}
 .flexbox > article > section {position:relative; width:178px; height:328px; border-radius:70px; padding:35px 0 0 30px}
@@ -21,10 +21,9 @@ header h1 span{display:block; color:#307DEF; font-size:20px; margin-bottom:10px;
 .flexbox > article > section > h3 {margin:26px 0 10px 0;}
 .flexbox > article > section > p {font-size:12px; font-weight:400; line-height:20px}
 @keyframes boxon {
-    from{background:rgba(255,255,255,0); box-shadow:0px 0px 60px rgba(48, 125, 239, 0);} to{background:#fff; box-shadow:0px 0px 60px rgba(48, 125, 239, 0.15);}
+    from{background:rgba(255,255,255,0); box-shadow:0px 0px 60px rgba(80, 239, 48, 0.5);} to{background:#fff; box-shadow:0px 0px 60px rgba(80, 239, 48, 0.5);}
 }
-.flexbox > article > section:hover{animation:boxon 0.3s; background:#fff; box-shadow:0px 0px 60px rgba(48, 125, 239, 0.15)}
+.flexbox > article > section:hover{animation:boxon 0.3s; background:#fff; box-shadow:0px 0px 60px rgba(80, 239, 48, 0.5)}
 .flexbox > article > section > a {position:absolute; right:24px; bottom:40px; width:40px; height:40px; border-radius:20px; opacity:0;}
-.flexbox > article > section:hover > a{background:#307DEF url('../res/btn_arrow.svg') no-repeat center; opacity:0.5; transition:0.3s;}
-.flexbox > article > section:hover > a:hover{box-shadow:0px 3px 10px rgba(48, 125, 239, 0.5); opacity:1; transition:0.3s}
-.logo{width: 70px; margin-left: 700px; margin-top: 70px; position: absolute; display: flex;}
+.flexbox > article > section:hover > a{background:#0E4D04 url('./res/btn_arrow.svg') no-repeat center; opacity:0.5; transition:0.3s;}
+.flexbox > article > section:hover > a:hover{box-shadow:0px 3px 10px rgba(80, 239, 48, 0.5); opacity:1; transition:0.3s}
