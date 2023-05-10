@@ -1,0 +1,21 @@
+- 조이름 :클로버
+
+- 주제 선정
+
+- 영화추천서비스 
+
+--
+
+팀과제 안내 페이지 
+
+https://teamsparta.notion.site/teamsparta/5579c90a3b9e407ea53cecd48a38f03b
+
+
+
+미니프로젝트 개요  블로그 
+
+https://skillazit.tistory.com/61
+
+
+깃허브주소
+https://github.com/sxi8022/moviereco.git
