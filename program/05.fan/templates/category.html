@@ -86,18 +86,27 @@
         .mybtns>button {
             margin-right: 10px;
         }
+
+        .genre_list {
+            width: 95%;
+            max-width: 300px;
+            margin: 30px auto 50px auto;
+            box-shadow: 0px 0px 3px 0px gray;
+            text-align-last: center;
+            text-align: center;
+            -ms-text-align-last: center;
+            -moz-text-align-last: center;
+            
+        }
     </style>
     <script>
         $(document).ready(function () {
-            listing();
-        });
+            listing()
+        })
 
         function listing() {
             fetch('/movie').then((res) => res.json()).then((data) => {
-                //console.log(data)
-                //alert(data['msg'])
                 let rows = data['result']
-                // console.log(rows)
                 $('#cards-box').empty()
                 rows.forEach((a) => {
                     let comment = a['comment']
@@ -105,42 +114,39 @@
                     let desc = a['desc']
                     let image = a['image']
                     let star = a['star']
-                    var star_repeat = ''
-                    if (star != undefined) {
-                        star_repeat = '⭐'.repeat(star)
-                    } else {
-                        star_repeat = '평점없음'
-                    }
-                    
-                     console.log(comment, title, desc, image, star)
-                   
-                    let temp_html = `
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="${image}"
-                                class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">${title}</h5>
-                                <p class="card-text">${desc}</p>
-                                <p>${star_repeat}</p>
-                                <p class="mycomment">${comment}</p>
-                            </div>
-                        </div>
-                    </div>
-                    `
-                    $('#cards-box').append(temp_html);
+                    let genre = a['genre']
+
+                    let star_repeat = '⭐'.repeat(star)
+
+                    let temp_html = `<div class="col">
+                                        <div class="card h-100">
+                                            <img src="${image}"
+                                                class="card-img-top">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${title}</h5>
+                                                <p class="card-text">장르 : ${genre}</p>
+                                                <p class="card-text">${desc}</p>
+                                                <p>${star_repeat}</p>
+                                                <p class="mycomment">${comment}</p>
+                                            </div>
+                                        </div>
+                                    </div>`
+                    $('#cards-box').append(temp_html)
                 })
             })
         }
 
         function posting() {
-            let url = $('#url').val();
-            let comment = $('#comment').val();
-            let star = $('#star').val();
-            let formData = new FormData();
-            formData.append("url_give", url);
-            formData.append("comment_give", comment);
-            formData.append("star_give", star);
+            let url = $('#url').val()
+            let comment = $('#comment').val()
+            let star = $('#star').val()
+            let genre = $('#genre').val()
+
+            let formData = new FormData()
+            formData.append("url_give", url)
+            formData.append("comment_give", comment)
+            formData.append("star_give", star)
+            formData.append("genre_give", genre)
 
             fetch('/movie', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
                 alert(data['msg'])
@@ -158,7 +164,6 @@
 </head>
 
 <body>
-    <h1>tttt</h1>
     <div class="mytitle">
         <h1>내 생애 최고의 영화들</h1>
         <button onclick="open_box()">영화 기록하기</button>
@@ -179,6 +184,21 @@
                 <option value="5">⭐⭐⭐⭐⭐</option>
             </select>
         </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">장르</label>
+            <select class="form-select" id="genre">
+                <option selected>-- 선택하기 --</option>
+                <option value="액션">액션</option>
+                <option value="공포/스릴러">공포/스릴러</option>
+                <option value="로맨스">로맨스</option>
+                <option value="코믹">코믹</option>
+                <option value="SF">SF</option>
+                <option value="다큐멘터리">다큐멘터리</option>
+                <option value="멜로">멜로</option>
+                <option value="판타지">판타지</option>
+                <option value="미스터리">미스터리</option>
+            </select>
+        </div>
         <div class="form-floating">
             <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
             <label for="floatingTextarea2">코멘트</label>
@@ -188,6 +208,20 @@
             <button onclick="close_box()" type="button" class="btn btn-outline-dark">닫기</button>
         </div>
     </div>
+    <div class="genre_list">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>-----------모두보기-----------</option>
+            <option value="액션">액션</option>
+            <option value="공포/스릴러">공포/스릴러</option>
+            <option value="로맨스">로맨스</option>
+            <option value="코믹">코믹</option>
+            <option value="SF">SF</option>
+            <option value="다큐멘터리">다큐멘터리</option>
+            <option value="멜로">멜로</option>
+            <option value="판타지">판타지</option>
+            <option value="미스터리">미스터리</option>
+        </select>
+    </div>
     <div class="mycards">
         <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box">
             <div class="col">
@@ -196,6 +230,7 @@
                         class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">영화 제목이 들어갑니다</h5>
+                        <p class="card-text">여기에 장르</p>
                         <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
                         <p>⭐⭐⭐</p>
                         <p class="mycomment">나의 한줄 평을 씁니다</p>

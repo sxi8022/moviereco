@@ -1,0 +1,90 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {  
+  height: 100%;
+  background: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)),
+    url('https://images.unsplash.com/photo-1604975701397-6365ccbd028a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80') no-repeat; 
+  background-size: cover;
+  align-items: center;
+}
+ 
+.teamLogo, .navbar-brand {
+  width: 3rem;
+  cursor: pointer;
+}
+
+.dropdown-item {color: white !important;}
+.dropdown-item:hover {color: black !important;}
+
+.mytitle {
+  color: white;
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.mytitle>button {
+  width: 200px;
+  height: 50px;
+
+  background-color: transparent;
+  color: white;
+
+  border-radius: 50px;
+  border: 1px solid white;
+
+  margin-top: 2.5rem;
+}
+
+h1{
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.mytitle>button:hover {
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: 0.15s;
+}
+
+.mycomment {
+  color: gray;
+}
+
+.mypost {
+  width: 95%;
+  max-width: 500px;
+  margin: 5rem auto;
+  background-color: rgba(0, 0, 0, 0.80);
+  display: none;
+}
+
+.mycards {
+  margin: 2rem auto;
+  width: 95%;
+}
+
+.mybtns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 25px;
+}
+
+.mybtns>button {
+  margin-right: 10px;
+}
