@@ -32,13 +32,15 @@ def movie_post():
     ogtitle = soup.select_one('meta[property="og:title"]')['content']
     ogdesc = soup.select_one('meta[property="og:description"]')['content']
     ogimage = soup.select_one('meta[property="og:image"]')['content']
+    ogGenre = soup.select_one('#mainContent > div > div.box_basic > div.info_detail > div.detail_cont > div:nth-child(1) > dl:nth-child(2) > dd').text;
 
     doc = {
         'title':ogtitle,
         'desc':ogdesc,
         'image':ogimage,
         'comment':comment_receive,    
-        'star':star_receive    
+        'star':star_receive,
+        'genre':ogGenre
     }
 
     db.movies.insert_one(doc)
