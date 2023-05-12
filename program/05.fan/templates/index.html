@@ -18,7 +18,7 @@
   <!-- JS -->
   <script src="{{ url_for('static', filename='js/script.js') }}" > </script>
 
-    <title>스파르타 피디아</title>
+    <title>영화추천서비스</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
@@ -28,6 +28,18 @@
 
             $('#navbarDropdown').click(function () {
                 window.location.href='/category'
+            })
+
+            $('#navbarNav > ul > li:nth-child(2) > a').click(function() {
+              window.location.href='/ranklist'
+            })
+            
+            $('#navbarNav > ul > li:nth-child(1) > a').click(function() {
+                window.location.href='/'
+            })
+
+            $('#intro_team').click(function() {
+                window.location.href='/intro'
             })
         });
 
@@ -108,24 +120,18 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item px-5 fs-3 fw-bold">
-              <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000/main">HOME</a>
+              <a class="nav-link active" aria-current="page" href="#">HOME</a>
             </li>
             <li class="nav-item px-5 fs-3 fw-bold">
-              <a class="nav-link" href="#">TOP 10</a>
+              <a class="nav-link" href="#">랭크</a>
             </li>
             <li class="nav-item dropdown d-inline px-5 fs-3 fw-bold">
                 <a class="nav-link" href="#" id="navbarDropdown">장르별조회</a>
-              <!--<ul class="dropdown-menu bg-transparent px-5 text-center" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">액션</a></li>
-                <li><a class="dropdown-item" href="#">공포/스릴러</a></li>
-                <li><a class="dropdown-item" href="#">로맨스</a></li>
-                <li><a class="dropdown-item" href="#">코믹</a></li>
-                <li><a class="dropdown-item" href="#">SF</a></li>
-                <li><a class="dropdown-item" href="#">다큐멘터리</a></li>
-                <li><a class="dropdown-item" href="#">멜로</a></li>
-                <li><a class="dropdown-item" href="#">판타지</a></li>
-                <li><a class="dropdown-item" href="#">미스터리</a></li>
-              </ul>-->
+              <ul class="dropdown-menu bg-transparent px-5 text-center" aria-labelledby="navbarDropdown">
+              </ul>
+            </li>
+            <li class="nav-item px-5 fs-3 fw-bold">
+              <a class="nav-link" href="#" id="intro_team">조원소개</a>
             </li>
           </ul>
         </div>
@@ -155,22 +161,6 @@
             <option value="5">⭐⭐⭐⭐⭐</option>
           </select>
         </div>
-  
-        <div class="input-group mb-3">
-          <label class="input-group-text" for="inputGroupSelect02">장르</label>
-          <select class="form-select" id="genre">
-              <option selected>-- 선택하기 --</option>
-              <option value="액션">액션</option>
-              <option value="공포/스릴러">공포/스릴러</option>
-              <option value="로맨스">로맨스</option>
-              <option value="코믹">코믹</option>
-              <option value="SF">SF</option>
-              <option value="다큐멘터리">다큐멘터리</option>
-              <option value="멜로">멜로</option>
-              <option value="판타지">판타지</option>
-              <option value="미스터리">미스터리</option>
-          </select>
-        </div>
         
         <div class="form-floating">
           <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
@@ -193,7 +183,6 @@
             <div class="card-body">
               <h5 class="card-title">영화 제목이 들어갑니다</h5>
               <p class="hidden">여기에 랭킹</p>
-              <p class="card-text">여기에 장르</p>
               <p class="card-text">여기에 영화에 대한 설명이 들어갑니다.</p>
               <p class="star">⭐⭐⭐</p>
               <p class="mycomment">나의 한줄 평을 씁니다</p>

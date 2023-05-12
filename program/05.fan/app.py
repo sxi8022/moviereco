@@ -19,6 +19,14 @@ def home():
 def category():
     return render_template('category.html')
 
+@app.route('/ranklist')
+def rankview():
+    return render_template('ranklist.html')
+
+@app.route('/intro')
+def intro():
+    return render_template('intro.html')
+
 @app.route("/movie", methods=["POST"])
 def movie_post():
     url_receive = request.form['url_give']
